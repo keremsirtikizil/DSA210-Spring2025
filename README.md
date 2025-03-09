@@ -4,13 +4,18 @@
 ## **Project: Measuring the Impact of ChatGPT on Coding Productivity and Learning**
 
 ### **Overview**  
-This project aims to analyze how ChatGPT affects my coding productivity and learning process. By tracking my coding activities with and without ChatGPT, I will measure whether it enhances efficiency or leads to dependency. Additionally, I will analyze which stages of coding (designing, implementing, debugging) are most impacted by ChatGPT. 
+As AI-assisted coding becomes increasingly popular, many developers rely on tools like ChatGPT to accelerate their workflow. But does it truly enhance productivity and learning, or does it create dependency and reduce problem-solving skills? This project will track my personal coding activities—both with and without ChatGPT—to measure its impact on efficiency, creativity, and learning. By analyzing my workflow across different coding phases (designing, implementing, debugging), I aim to uncover whether ChatGPT is a game-changer or a crutch in software development.
 
 ### **Motivation**  
-While AI-assisted coding is becoming more prevalent, its actual impact on productivity and learning remains unclear. This project seeks to:
-- Determine whether ChatGPT improves or hinders my coding speed and efficiency.
-- Analyze how ChatGPT affects different phases of coding: **designing, implementing, and debugging**.
-- Identify any dependency trends over time.
+AI-powered coding tools have revolutionized the way developers approach problem-solving. However, a critical question remains: Are these tools genuinely making us better programmers, or are they making us overly dependent?
+
+This project is driven by the need to understand ChatGPT’s role in my coding journey. Specifically, I aim to:
+
+- **Quantify ChatGPT’s impact** on coding speed and efficiency.
+- Analyze its effects on different coding phases—does it help more in **designing, implementing, or debugging**?
+- Evaluate long-term learning effects—am I improving as a developer, or am I losing problem-solving skills?
+  
+By systematically tracking my coding habits, I hope to provide meaningful insights into how AI tools should be integrated into a developer’s workflow for maximum productivity without sacrificing learning.
 
 Understanding these effects can provide insights into how AI tools should be integrated into a developer’s workflow for maximum benefit.
 
