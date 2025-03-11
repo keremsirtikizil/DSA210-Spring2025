@@ -1,74 +1,75 @@
-# DSA210-Spring2025
-**# DSA210 PROJECT**  
+**DSA210-Spring2025**
 
-## **Project: Measuring the Impact of ChatGPT on Coding Productivity and Learning**
+# DSA210 PROJECT
 
-### **Overview**  
-As AI-assisted coding becomes increasingly popular, many developers rely on tools like ChatGPT to accelerate their workflow. But does it truly enhance productivity and learning, or does it create dependency and reduce problem-solving skills? This project will track my personal coding activities—both with and without ChatGPT—to measure its impact on efficiency, creativity, and learning. By analyzing my workflow across different coding phases (designing, implementing, debugging), I aim to uncover whether ChatGPT is a game-changer or a crutch in software development.
+**Project: Analyzing the Influence of Movie Attributes on Box Office Success**
 
-### **Motivation**  
-AI-powered coding tools have revolutionized the way developers approach problem-solving. However, a critical question remains: Are these tools genuinely making us better programmers, or are they making us overly dependent?
+## **Overview**
+The film industry is a high-stakes market where financial success depends on multiple factors, including budget, genre, director reputation, and audience reception. However, it remains unclear which attributes contribute the most to a film’s box office revenue. This project aims to analyze the relationship between various movie attributes and their commercial success using publicly available datasets from IMDb, Rotten Tomatoes, and Box Office Mojo. By leveraging statistical analysis and machine learning models, this study will identify key predictors of box office performance and assess whether certain combinations of attributes consistently lead to higher revenue.
 
-This project is driven by the need to understand ChatGPT’s role in my coding journey. Specifically, I aim to:
+## **Motivation**
+The entertainment industry continues to evolve, with streaming services and changing audience preferences impacting traditional box office trends. Understanding what drives box office success is crucial for production studios, investors, and marketers. This study seeks to answer:
 
-- **Quantify ChatGPT’s impact** on coding speed and efficiency.
-- Analyze its effects on different coding phases—does it help more in **designing, implementing, or debugging**?
-- Evaluate long-term learning effects—am I improving as a developer, or am I losing problem-solving skills?
-  
-By systematically tracking my coding habits, I hope to provide meaningful insights into how AI tools should be integrated into a developer’s workflow for maximum productivity without sacrificing learning.
+- Does a larger production budget always translate to higher revenue?
+- Do certain genres or genre combinations (e.g., Action + Sci-Fi) perform better?
+- Does a well-known director significantly boost box office performance?
+- How do audience ratings (e.g., IMDb, Rotten Tomatoes) correlate with financial success?
 
-Understanding these effects can provide insights into how AI tools should be integrated into a developer’s workflow for maximum benefit.
+By systematically analyzing these questions, this project will provide empirical insights into how different movie characteristics influence box office earnings.
 
-### **Data Sources**  
-The data will be collected exclusively from my own activities, including:
-- **ChatGPT usage logs**: Time and frequency of ChatGPT interactions.
-- **Coding activity logs**: Time spent coding, categorized into:
-  - **Designing** (planning, structuring code, algorithm design)
-  - **Implementing** (writing and testing new code)
-  - **Debugging** (fixing errors, optimizing performance)
-- **Terminal & IDE usage logs**: Time spent in coding environments (VS Code, terminal, etc.).
-- **Commit history from GitHub**: Tracking coding progress over time.
-- **Self-reported difficulty ratings**: Logging how difficult tasks feel with and without ChatGPT.
+## **Data Sources**
+The datasets for this study will be obtained from the following sources:
 
-### **Methodology**  
-#### **Data Collection & Cleaning**
-- Manually log ChatGPT usage and categorize coding sessions.
-- Extract IDE usage data (if available) to track active coding time.
-- Align collected data with timestamps to measure task efficiency.
+- **IMDb Datasets** (https://datasets.imdbws.com)
+  - Movie metadata, including titles, genres, directors, and user ratings.
+  - Available in TSV format.
+- **Rotten Tomatoes Datasets**
+  - Audience and critic scores for movies.
+  - May require web scraping or API access.
+- **Box Office Datasets** (Box Office Mojo, The Numbers)
+  - Box office performance, including domestic and international earnings.
+  - Data extraction may require web scraping or API access.
 
-#### **Exploratory Data Analysis (EDA)**  
-- Compare total coding time with and without ChatGPT.
-- Analyze ChatGPT’s impact on different coding phases.
-- Visualize trends in ChatGPT reliance over time.
+## **Methodology**
 
-#### **Correlation & Statistical Analysis**  
-- Conduct hypothesis tests (T-test, ANOVA) to determine statistically significant differences.
-- Identify efficiency gains or losses in designing, implementing, and debugging.
+### **Data Collection & Cleaning**
+- Extract movie attributes from IMDb, Rotten Tomatoes, and Box Office Mojo.
+- Handle missing values and ensure consistency in budget and revenue figures.
+- Convert categorical variables (e.g., genre encoding, director reputation scores) for analysis.
 
-#### **Insights & Interpretation**  
-- Does ChatGPT improve or slow down coding efficiency?
-- In which phases (designing, implementing, debugging) is ChatGPT most beneficial or detrimental?
-- How does ChatGPT usage evolve over time?
+### **Exploratory Data Analysis (EDA)**
+- Visualize trends in budget, genre popularity, and revenue distribution.
+- Identify correlations between movie attributes and box office success.
 
-### **Data Collection Plan**  
-- **Manually record coding sessions daily**, tracking ChatGPT interactions.
-- **Use IDE/terminal logs** to validate recorded data.
-- **Track GitHub commits** to measure actual coding output.
-- **Collect data over several weeks** to ensure meaningful analysis.
-- **I will collect the data throughout March over my 3 CS-coded courses'(Operating Systems, Programming Languages, Mobile Application Development) take-home exams.**
+### **Statistical Analysis & Hypothesis Testing**
+- Conduct hypothesis testing (T-tests, ANOVA) to determine significant relationships.
+- Examine the impact of budget, genre, and director reputation on revenue.
+- Test whether highly-rated movies consistently generate more revenue.
 
-### **Expected Outcomes**  
-- A clear understanding of how ChatGPT impacts coding productivity.
-- Identification of coding phases where ChatGPT is most useful or harmful.
-- Insights into whether ChatGPT improves problem-solving skills or leads to over-reliance.
+### **Machine Learning Modeling**
+- **Regression Analysis:** Quantify relationships between budget, genre, and box office earnings.
+- **Clustering:** Group movies based on success metrics and key attributes.
+- **Predictive Modeling:** Develop machine learning models (Random Forest, XGBoost) to predict box office revenue based on pre-release factors.
 
-### **Project Timeline**  
-- **March 10:** Submit project proposal on GitHub (README.md, data collection plan).  
-- **March 11-25:** Data collection and preliminary analysis.  
-- **March 26 - April 10:** Exploratory Data Analysis (EDA) and correlation analysis.  
-- **April 11-25:** Advanced modeling and visualization.  
-- **May 23:** Final insights and conclusions.  
-- **May 30:** Final submission and report presentation.  
+## **Data Collection Plan**
+- Gather and clean IMDb, Rotten Tomatoes, and Box Office datasets.
+- Validate and preprocess the data to ensure accuracy.
+- Conduct initial EDA before moving to statistical analysis and modeling.
+- Analyze trends in movie success over different time periods.
 
-This project will provide valuable insights into AI-assisted coding and its long-term effects on productivity and learning.
+## **Expected Outcomes**
+- Identification of the most influential factors in determining box office success.
+- Predictive insights on how pre-release attributes affect revenue potential.
+- Data-driven recommendations for movie studios to optimize investment decisions.
+
+## **Project Timeline**
+
+- **March 10:** Submit project proposal.
+- **March 11-25:** Data collection and preliminary analysis.
+- **March 26 - April 10:** Exploratory Data Analysis (EDA) and hypothesis testing.
+- **April 11-25:** Machine learning modeling and visualization.
+- **May 23:** Final insights and conclusions.
+- **May 30:** Final submission and report presentation.
+
+This project will provide valuable insights into the factors influencing box office success, offering a data-driven approach to understanding the film industry’s financial dynamics.
 
