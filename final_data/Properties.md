@@ -4,7 +4,7 @@ This dataset integrates **IMDb**, **Rotten Tomatoes**, and **TMDb API** data for
 
 ---
 
-### 🔢 Core Movie Info
+### Core Movie Info
 
 | Column | Description |
 |--------|-------------|
@@ -17,7 +17,7 @@ This dataset integrates **IMDb**, **Rotten Tomatoes**, and **TMDb API** data for
 
 ---
 
-### 🎬 Director Information
+### Director Information
 
 | Column | Description |
 |--------|-------------|
@@ -27,7 +27,7 @@ This dataset integrates **IMDb**, **Rotten Tomatoes**, and **TMDb API** data for
 
 ---
 
-### ⭐ IMDb Ratings
+### IMDb Ratings
 
 | Column | Description |
 |--------|-------------|
@@ -37,7 +37,7 @@ This dataset integrates **IMDb**, **Rotten Tomatoes**, and **TMDb API** data for
 
 ---
 
-### 🍅 Rotten Tomatoes (RT) Metrics
+### Rotten Tomatoes (RT) Metrics
 
 | Column | Description |
 |--------|-------------|
@@ -51,7 +51,7 @@ This dataset integrates **IMDb**, **Rotten Tomatoes**, and **TMDb API** data for
 
 ---
 
-### 💰 TMDb Financials
+### TMDb Financials
 
 | Column | Description |
 |--------|-------------|
@@ -61,7 +61,7 @@ This dataset integrates **IMDb**, **Rotten Tomatoes**, and **TMDb API** data for
 
 ---
 
-### 🔧 Utility & Engineered Features
+### Utility & Engineered Features
 
 | Column | Description |
 |--------|-------------|
@@ -69,7 +69,7 @@ This dataset integrates **IMDb**, **Rotten Tomatoes**, and **TMDb API** data for
 
 ---
 
-### ✅ Final Cleaning Summary
+### Final Cleaning Summary
 
 - All rows with **missing values** (`NaN`) have been removed
 - Final DataFrame dimensions:
