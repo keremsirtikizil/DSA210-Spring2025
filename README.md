@@ -57,19 +57,42 @@ The datasets for this study will be obtained from the following sources:
 - Conduct initial EDA before moving to statistical analysis and modeling.
 - Analyze trends in movie success over different time periods.
 
-## **Expected Outcomes**
-- Identification of the most influential factors in determining box office success.
-- Predictive insights on how pre-release attributes affect revenue potential.
-- Data-driven recommendations for movie studios to optimize investment decisions.
+## **Findings**
 
-## **Project Timeline**
+### **Exploratory Data Analysis**
 
-- **March 10:** Submit project proposal.
-- **March 11-25:** Data collection and preliminary analysis.
-- **March 26 - April 10:** Exploratory Data Analysis (EDA) and hypothesis testing.
-- **April 11-25:** Machine learning modeling and visualization.
-- **May 23:** Final insights and conclusions.
-- **May 30:** Final submission and report presentation.
+#### Insight 1
+- This histogram shows the distribution of movie profits (tmdb_profit). The data is highly right-skewed, with the majority of films generating little to no profit or even losses. Only a small minority of movies reach exceptionally high profit levels (e.g., $500M+), which suggests outliers and motivates the later use of log-transformation during modeling.
 
-This project will provide valuable insights into the factors influencing box office success, offering a data-driven approach to understanding the film industry’s financial dynamics.
+<img width="938" alt="Screenshot 2025-05-20 at 00 25 14" src="https://github.com/user-attachments/assets/0befcf5e-be4d-4de0-ab0c-7b00b930e688" />
 
+#### Insight 2
+- This scatter plot visualizes the relationship between a movie’s production budget and its resulting profit. While a loose upward trend is present — suggesting that higher investments can lead to higher returns — there is also substantial variance. Several high-budget movies still fail to return profit, revealing that budget alone does not guarantee success.
+<img width="944" alt="Screenshot 2025-05-20 at 00 33 02" src="https://github.com/user-attachments/assets/b86d5af1-8c9b-4ad0-9db8-0c67e27855b4" />
+
+#### Insight 3
+- This heatmap summarizes pairwise correlations among key numerical features. Unsurprisingly, tmdb_budget and tmdb_revenue are highly correlated. However, tmdb_profit shows a weaker relationship with other variables like averageRating and numVotes, indicating that movie success is multifactorial and not easily predicted by a single metric.
+<img width="950" alt="Screenshot 2025-05-20 at 00 35 00" src="https://github.com/user-attachments/assets/091d2875-446d-492f-a0d5-6023433b67b5" />
+
+#### Insight 4
+- This bar chart compares the average profits of the most frequently appearing directors in the dataset. Certain directors consistently deliver profitable films, while others vary widely. This plot supports the hypothesis that director reputation or prior success can be used as a predictive feature for financial performance.
+<img width="935" alt="Screenshot 2025-05-20 at 00 21 52" src="https://github.com/user-attachments/assets/abbb7a48-ed50-49cc-9874-9123e9c5e8a1" />
+
+#### Insight 5
+- This boxplot compares the distribution of profits for movies categorized by IMDb rating group (low, mid, high). As expected, higher-rated films tend to earn more profit on average, though the variance is high. Some low-rated films are surprisingly profitable, suggesting that commercial success and audience perception are not always aligned.
+<img width="959" alt="Screenshot 2025-05-20 at 00 48 14" src="https://github.com/user-attachments/assets/51ab6df4-0077-4210-91ab-587997ed1a3e" />
+
+#### Insight 6
+- This histogram shows that IMDb ratings (averageRating) mostly fall between 5 and 8. The distribution is bell-shaped, supporting the later decision to categorize movies into low, mid, and high quality groups for classification purposes.
+<img width="948" alt="Screenshot 2025-05-20 at 00 50 25" src="https://github.com/user-attachments/assets/5633c38b-1331-456a-8c09-ab4ca62b6b96" />
+
+#### Insight 7
+- This boxplot shows the IMDb rating distributions for the top 8 most frequent directors in the dataset. Directors like Steven Spielberg and Clint Eastwood have consistently high ratings with low variability, while others like Robert Rodriguez show a wider spread in audience reception. Overall, it highlights how some directors maintain a more reliable level of critical success than others.
+<img width="942" alt="Screenshot 2025-05-20 at 00 55 06" src="https://github.com/user-attachments/assets/f5aab76a-22d5-48b5-ab82-d6e6b7b62037" />
+
+
+- Please go to [EDA.ipnyb](https://github.com/keremsirtikizil/DSA210-Spring2025/blob/main/EDA/EDA.ipynb) file to see more insights about my dataset.
+
+### **Hypothesis Testing**
+
+- will cont.
