@@ -57,7 +57,7 @@ The datasets for this study will be obtained from the following sources:
 - Conduct initial EDA before moving to statistical analysis and modeling.
 - Analyze trends in movie success over different time periods.
 
-## **Findings**
+## **FINAL REPORT**
 
 ### **Exploratory Data Analysis**
 
