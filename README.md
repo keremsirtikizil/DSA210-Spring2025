@@ -93,7 +93,7 @@ The datasets for this study will be obtained from the following sources:
 
 - Please go to [EDA.ipnyb](https://github.com/keremsirtikizil/DSA210-Spring2025/blob/main/EDA/EDA.ipynb) file to see more insights about my dataset.
 
-
+<br>
 
 ### **Hypothesis Testing**
 
@@ -231,6 +231,8 @@ Gradient Boosting Regressor:
 - Modeling Techniques: Explore more (advanced) models like XGBoost or LightGBM and consider neural networks for capturing deeper patterns.
 - Residual Analysis: Investigate model residuals to identify systematic errors or patterns.
 
+<br><br>
+
 **Classification Modeling: Predicting IMDb Rating Group ("Low", "Mid", "High")**
 
 Objective:
@@ -303,7 +305,7 @@ For predicting IMDb rating groups:
 - Logistic Regression is the best-performing model, providing near-perfect accuracy and strong generalization.
 - Random Forest is also a strong candidate, offering robustness and similar performance.
 - Naive Bayes is not suitable for this problem, as it struggles with feature dependencies and overlapping class distributions.
-<img width="940" alt="Screenshot 2025-05-27 at 11 14 54" src="https://github.com/user-attachments/assets/633c319c-ad3f-4dce-9aef-25470d463453" />
+
 
 **Recommendations for Further Work**
 While the current models provide valuable insights, several areas can be improved to enhance prediction accuracy and model robustness:
