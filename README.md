@@ -93,6 +93,148 @@ The datasets for this study will be obtained from the following sources:
 
 - Please go to [EDA.ipnyb](https://github.com/keremsirtikizil/DSA210-Spring2025/blob/main/EDA/EDA.ipynb) file to see more insights about my dataset.
 
+
+
 ### **Hypothesis Testing**
 
-- will cont.
+#### **Hypothesis 1**
+**Production Budget and Revenue Relationship**
+- H₀ (Null): There is no relationship between production budget and revenue (the slope of the regression line is zero).
+- H₁ (Alternative): There is a positive relationship between production budget and revenue.
+**Methodology:**
+- A simple linear regression was conducted to assess the relationship between a movie's budget and its revenue. The regression line’s slope and the coefficient of determination (R²) were examined. Additionally, a t-test was performed to determine if the slope is significantly different from zero.
+
+**Results**
+- R² value: 0.251 (indicating around 25% of revenue variability can be explained by budget)
+- Slope: 1.175 (positive)
+- p-value: < 0.0001 (highly significant)
+
+**Interpretation**
+- The null hypothesis was rejected, indicating a statistically significant positive relationship between budget and revenue. While budget is a significant predictor, the modest R² suggests other factors also influence revenue.
+<img width="649" alt="Screenshot 2025-05-27 at 10 17 16" src="https://github.com/user-attachments/assets/d6379763-45ca-46c3-aef5-79557b134fec" />
+
+#### **Hypothesis 2**
+**Revenue Differences Across Genres**
+- H₀ (Null): Average revenue is the same across different genres/genre combinations.
+- H₁ (Alternative): At least one genre has a different average revenue.
+**Methodology**
+- An ANOVA (F-test) was conducted to compare average revenues across unique genre combinations. A bar chart was also generated to visualize average revenue for a sample of genres.
+
+**Results**
+- F-statistic: 1.567
+- p-value: < 0.0001 (highly significant)
+
+**Interpretation**
+- The null hypothesis was rejected. This indicates significant differences in average revenue across genres, suggesting that some genres (or genre combinations) tend to perform better financially than others.
+<img width="945" alt="Screenshot 2025-05-27 at 10 17 29" src="https://github.com/user-attachments/assets/3218dbab-1fe2-429d-8725-10d61414dc6c" />
+
+#### **Hypothesis 3**
+**Correlation Between Runtime and Revenue**
+- H₀ (Null): There is no correlation between runtime and revenue.
+- H₁ (Alternative): There is a correlation between runtime and revenue.
+**Methodology**
+- A Pearson correlation test was performed to evaluate the linear relationship between runtime and revenue. Logarithmic scales were used in scatterplots for visualization due to the skewed data.
+
+**Results**
+- Correlation coefficient: 0.089
+- p-value: < 0.0001 (significant)
+
+**Interpretation**
+- The null hypothesis was rejected. However, the correlation coefficient is very weak, indicating that while there is a statistically significant correlation, runtime is not a strong predictor of revenue on its own.
+<img width="961" alt="Screenshot 2025-05-27 at 10 17 43" src="https://github.com/user-attachments/assets/b8d8bc62-7aa8-4a9b-a518-548acd3f47cd" />
+
+#### **Hypothesis 4**
+**Correlation Between Audience Ratings and Profit**
+- H₀ (Null): There is no correlation between ratings (IMDb, Rotten Tomatoes) and profit.
+- H₁ (Alternative): There is a correlation between ratings and profit.
+**Methodology**
+Two tests were conducted:
+- Spearman rank correlation for IMDb ratings (continuous) vs. log-transformed profit.
+- Point-biserial correlation for Rotten Tomatoes “freshness” (binary) vs. log-transformed profit.
+- Scatterplots were created for visual reference.
+
+**Results**
+
+IMDb Rating vs. Profit:
+- Spearman r: 0.036
+- p-value: 0.138 (not significant)
+
+Rotten Tomatoes Freshness vs. Profit:
+- Point-biserial r: -0.013
+- p-value: 0.596 (not significant)
+
+**Interpretation**
+- For both tests, the null hypothesis was not rejected. This suggests no significant correlation between audience ratings and financial success in the dataset analyzed.
+<img width="952" alt="Screenshot 2025-05-27 at 10 17 51" src="https://github.com/user-attachments/assets/e34c43e0-94e7-40b7-81c3-368b0b07bdc8" />
+
+
+### **Machine Learning**
+
+**Regression: Predicting TMDb Revenue**
+
+Objective:
+- The goal of this analysis was to build predictive models to estimate a movie's TMDb revenue based on available features, including budget, ratings, votes, genres, and temporal information. By evaluating multiple regression algorithms, we aimed to understand which model best captures the underlying patterns in the data and to assess the impact of different features on financial outcomes.
+ 
+
+To enhance model performance and handle skewed data (Feature Engineering):
+- Log-transformations were applied to tmdb_budget and numVotes (log_budget, log_votes) to reduce skewness.
+- A decade feature was created from releaseYear to capture temporal trends.
+- num_genres was added to represent genre diversity.
+- Genres were one-hot encoded using MultiLabelBinarizer to transform multi-label genre data into binary indicator columns (e.g., Action, Comedy, etc.).
+- Missing values in numerical columns were imputed using mean values, while categorical columns (if any) were filled using mode values.
+
+**Model Training and Evaluation**
+
+Three regression models were trained and evaluated:
+- Random Forest Regressor
+- Linear Regression
+- Gradient Boosting Regressor
+- (The dataset was split into an 80% training set and a 20% test set using train_test_split.)
+
+Performance metrics used for evaluation:
+- Root Mean Squared Error (RMSE): Measures average prediction error magnitude.
+- R² Score: Indicates how well the model explains variance in the target variable (tmdb_revenue).
+
+**Results**
+
+| Model                | RMSE (USD)      | R² Score |
+|----------------------|-----------------|-----------|
+| Random Forest        | **111,167,000** | **0.583** |
+| Linear Regression    | 148,970,000     | 0.251     |
+| Gradient Boosting    | 112,522,000     | 0.573     |
+
+
+**Interpretation & Insights**
+
+Random Forest Regressor:
+- Achieved the lowest RMSE and highest R² among the models.
+- Captured complex, non-linear relationships between features and revenue, handling feature interactions without explicit specification.
+- R² of 0.583 suggests that ~58% of revenue variability can be explained by the features used. This indicates a moderate predictive power, but also highlights the influence of unmodeled factors (e.g., marketing, competition, global events).
+
+Linear Regression:
+- Performance was substantially lower than the tree-based models, with an R² of 0.251.
+- The model assumes a strictly linear relationship between features and revenue, which likely oversimplifies the dynamics of movie performance.
+- Linear regression may struggle with feature interactions and non-linear patterns present in the dataset.
+
+Gradient Boosting Regressor:
+- Performed almost as well as Random Forest, with a slightly higher RMSE and a slightly lower R².
+- Gradient Boosting, being a sequential ensemble method, likely captured complex relationships but was marginally less effective in this context compared to Random Forest, possibly due to the limited tuning (default hyperparameters).
+
+**Conclusion** 
+- The Random Forest Regressor outperformed other models and appears to be the best choice for predicting TMDb revenue using the available dataset.
+- However, the R² scores below 0.6 for all models indicate that a large portion of revenue variability remains unexplained. This suggests that while the models can provide reasonable estimates, external factors (e.g., marketing, distribution, competition, critical reviews) significantly influence movie revenue and were not captured in this dataset.
+<img width="680" alt="Screenshot 2025-05-27 at 10 47 52" src="https://github.com/user-attachments/assets/e3ed066d-19de-4634-a7b6-8ef8ab4548d1" />
+
+**Recommendations for Further Work**
+- Feature Expansion: Include variables such as marketing spend, release date (seasonality), franchise status (sequel, prequel), and star power.
+- Hyperparameter Tuning: Conduct grid or random search for optimal parameters, especially for tree-based models.
+- Modeling Techniques: Explore more (advanced) models like XGBoost or LightGBM and consider neural networks for capturing deeper patterns.
+- Residual Analysis: Investigate model residuals to identify systematic errors or patterns.
+
+
+
+
+
+
+
+
