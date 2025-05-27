@@ -231,6 +231,111 @@ Gradient Boosting Regressor:
 - Modeling Techniques: Explore more (advanced) models like XGBoost or LightGBM and consider neural networks for capturing deeper patterns.
 - Residual Analysis: Investigate model residuals to identify systematic errors or patterns.
 
+**Classification Modeling: Predicting IMDb Rating Group ("Low", "Mid", "High")**
+
+Objective:
+- This classification task aimed to predict a movie’s IMDb rating group—categorized as low (<6.0), mid (6.0–7.5), or high (>7.5)—based on features known before release, such as budget, votes, genre, and temporal information. This can help studios make informed decisions in pre-production and marketing phases by estimating a movie’s potential reception.
+
+The dataset included:
+- Target Variable: rating_group (low, mid, high)
+- Features: Log-transformed budget and votes, original score, freshness indicator, decade of release, number of genres, and genre dummy variables.
+- Missing values were imputed with mean (numerical) or mode (categorical).
+- The dataset was split into an 80% training set and a 20% test set.
+
+**Models Training and Evaluation**
+
+Three models were trained:
+- Logistic Regression (Multinomial)
+- Random Forest Classifier
+- Naive Bayes Classifier
+
+Metrics used:
+- Precision (correctly predicted positives over total predicted positives)
+- Recall (correctly predicted positives over total actual positives)
+- F1 Score (harmonic mean of precision and recall)
+
+**Results**
+
+### Classification Model Results
+
+| Class | Model                | Precision | Recall | F1 Score |
+|-------|----------------------|-----------|--------|----------|
+| High  | Logistic Regression  | 1.00      | 1.00   | 1.00     |
+|       | Random Forest        | 1.00      | 1.00   | 1.00     |
+|       | Naive Bayes          | 0.99      | 0.53   | 0.38     |
+| Mid   | Logistic Regression  | 1.00      | 0.99   | 0.99     |
+|       | Random Forest        | 0.99      | 0.99   | 0.99     |
+|       | Naive Bayes          | 0.00      | 0.00   | 0.00     |
+| Low   | Logistic Regression  | 1.00      | 1.00   | 1.00     |
+|       | Random Forest        | 1.00      | 1.00   | 1.00     |
+|       | Naive Bayes          | 0.60      | 0.44   | 0.44     |
+
+
+**Interpretation and Insights**
+
+Logistic Regression (Multinomial):
+- Achieved perfect or near-perfect classification for all classes.
+- F1-scores for "high" and "low" were 1.00, and for "mid" it was 0.99.
+- The confusion matrix showed very few misclassifications, suggesting excellent generalization.
+- Logistic Regression handles this problem exceptionally well due to the balanced and structured feature space (e.g., log-transformed features, scaled inputs).
+<img width="584" alt="Screenshot 2025-05-27 at 11 07 58" src="https://github.com/user-attachments/assets/333d7c4f-bc2a-4c9b-b4b3-8e4cfa873b9b" />
+
+Random Forest Classifier:
+- Also achieved excellent performance, nearly matching Logistic Regression.
+- Perfect scores for "low" and "high", with "mid" class also predicted almost perfectly.
+- Random Forest effectively captured non-linear relationships and feature interactions, making it a robust alternative to Logistic Regression.
+<img width="582" alt="Screenshot 2025-05-27 at 11 09 13" src="https://github.com/user-attachments/assets/88f97ac0-035f-4623-8073-32037b42f515" />
+
+Naive Bayes Classifier:
+- Performance was substantially weaker compared to the other models.
+- Mid-class completely missed (F1-score = 0.00).
+- Struggled with imbalances and feature correlations inherent in the dataset.
+- Naive Bayes' strong independence assumptions likely led to poor generalization, especially for overlapping classes like "mid".
+<img width="598" alt="Screenshot 2025-05-27 at 11 10 19" src="https://github.com/user-attachments/assets/ff7efeba-fc7b-4427-81d1-f1aba167da70" />
+
+
+- Both Logistic Regression and Random Forest displayed near-perfect matrices, with almost no off-diagonal errors, however, Naive Bayes misclassified a significant portion of "mid" and "low" classes, often confusing them for each other or defaulting to majority classes.
+<img width="970" alt="Screenshot 2025-05-27 at 11 11 41" src="https://github.com/user-attachments/assets/1b46d452-7869-4bc5-9751-8bb0b2c27456" />
+
+**Conclusion**
+
+For predicting IMDb rating groups:
+- Logistic Regression is the best-performing model, providing near-perfect accuracy and strong generalization.
+- Random Forest is also a strong candidate, offering robustness and similar performance.
+- Naive Bayes is not suitable for this problem, as it struggles with feature dependencies and overlapping class distributions.
+<img width="940" alt="Screenshot 2025-05-27 at 11 14 54" src="https://github.com/user-attachments/assets/633c319c-ad3f-4dce-9aef-25470d463453" />
+
+**Recommendations for Further Work**
+While the current models provide valuable insights, several areas can be improved to enhance prediction accuracy and model robustness:
+- Feature Expansion: Add more pre-release features like marketing budget, release window, star power, and franchise status.
+- Class Balancing: Apply techniques like SMOTE or class weighting to address any remaining imbalances.
+- Error Analysis: Review misclassified samples and residuals to uncover model weaknesses.
+- Real-World Testing: Validate models on upcoming films using only pre-release data.
+
+
+
+
+## **References**
+
+- [IMDb Datasets](https://www.imdb.com/interfaces/) – Used for movie ratings, votes, genres, and production years.
+- [TMDb API](https://developer.themoviedb.org/docs) – Source for movie budgets and revenue data.
+- [Pandas Documentation](https://pandas.pydata.org/docs/) – For data manipulation and analysis.
+- [NumPy Documentation](https://numpy.org/doc/) – For numerical operations and transformations.
+- [scikit-learn Documentation](https://scikit-learn.org/stable/) – For machine learning models, preprocessing tools, and evaluation metrics.
+- [Matplotlib Documentation](https://matplotlib.org/stable/contents.html) – For visualizations.
+- [Seaborn Documentation](https://seaborn.pydata.org/) – For advanced visualizations.
+- [MultiLabelBinarizer (scikit-learn)](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MultiLabelBinarizer.html) – For encoding multi-label genre data.
+- [Random Forest Algorithm](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
+- [Logistic Regression Algorithm](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
+- [Gradient Boosting Algorithm](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html)
+- [Naive Bayes Algorithm](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html)
+- [ChatGPT (OpenAI, GPT-4)](https://openai.com/) – Assisted with model explanations, code structuring, and report writing.
+
+
+
+
+
+
 
 
 
