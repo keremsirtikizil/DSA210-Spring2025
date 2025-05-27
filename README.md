@@ -319,6 +319,8 @@ While the current models provide valuable insights, several areas can be improve
 
 - [IMDb Datasets](https://www.imdb.com/interfaces/) – Used for movie ratings, votes, genres, and production years.
 - [TMDb API](https://developer.themoviedb.org/docs) – Source for movie budgets and revenue data.
+- [Rotten Tomatoes](https://www.rottentomatoes.com) – Used for critic ratings (Fresh/Rotten).
+- [Box Office Mojo](https://www.boxofficemojo.com/) – Reference for box office revenue data.
 - [Pandas Documentation](https://pandas.pydata.org/docs/) – For data manipulation and analysis.
 - [NumPy Documentation](https://numpy.org/doc/) – For numerical operations and transformations.
 - [scikit-learn Documentation](https://scikit-learn.org/stable/) – For machine learning models, preprocessing tools, and evaluation metrics.
