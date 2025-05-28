@@ -308,6 +308,7 @@ For predicting IMDb rating groups:
 
 
 **Recommendations for Further Work**
+
 While the current models provide valuable insights, several areas can be improved to enhance prediction accuracy and model robustness:
 - Feature Expansion: Add more pre-release features like marketing budget, release window, star power, and franchise status.
 - Class Balancing: Apply techniques like SMOTE or class weighting to address any remaining imbalances.
@@ -315,6 +316,8 @@ While the current models provide valuable insights, several areas can be improve
 - Real-World Testing: Validate models on upcoming films using only pre-release data.
 
 
+**Improvement Idea for Both Cases**
+- In this project, we employed an 80-20 train-test split to evaluate model performance. This approach provides a basic estimate of how the model might perform on unseen data. However, a single train-test split can lead to variability in results, as it depends on how the data is partitioned. For a more robust and reliable evaluation, cross-validation techniques—such as k-fold cross-validation—could be implemented in future work. This would allow for performance assessment across multiple splits of the data, helping to reduce the potential for bias introduced by any single partition and ensuring the model’s generalizability to new datasets.
 
 
 ## **References**
