@@ -144,7 +144,7 @@ To enhance model performance and handle skewed data (Feature Engineering):
 
 Three regression models were trained and evaluated:
 - Random Forest Regressor
-- Linear Regression
+- Linear Regression (While not considered a true machine learning model in the modern sense, is included for baseline comparison and interpretability. It assumes a simple linear relationship between features and target, which is often too restrictive for complex, real-world data like movie revenues. However, Linear Regression provides valuable insights into feature importance and direction of relationships.)
 - Gradient Boosting Regressor
 - (The dataset was split into an 80% training set and a 20% test set using train_test_split.)
 
