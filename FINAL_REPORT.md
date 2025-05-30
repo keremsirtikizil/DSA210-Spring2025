@@ -7,13 +7,71 @@
 
 ## **Introduction**
 
-The film industry is a dynamic sector where financial success depends on a multitude of factors, including production budgets, genre trends, audience preferences, and critical reviews. This project explores these complexities through data-driven analysis, leveraging a comprehensive dataset sourced from IMDb, TMDb, and Rotten Tomatoes.
+The film industry is a high-stakes domain where financial success and critical acclaim do not always align. With the increasing availability of structured movie datasets from sources such as IMDb, TMDb, and Rotten Tomatoes, data science offers an opportunity to uncover patterns and make predictive inferences about a movie's financial and critical outcomes. 
 
-The report begins with an **exploratory data analysis (EDA)** to uncover patterns in the data, followed by **hypothesis testing** to rigorously evaluate assumptions such as the impact of budgets, genres, and ratings on financial outcomes. Building on these insights, the study applies **machine learning models** to predict movie revenues (regression task) and IMDb rating groups (classification task).
+This project aims to explore the factors that influence movie success both from a financial and critical perspective. It involves exploratory data analysis (EDA), hypothesis testing, and predictive modeling using machine learning. The core objectives include:
+- Understanding the distribution and relationships among key movie-related features (budget, revenue, ratings, genres, etc.).
+- Testing statistical hypotheses regarding revenue determinants.
+- Building machine learning models to predict revenue (regression) and IMDb rating group (classification).
 
-By combining data exploration, hypothesis validation, and predictive modeling, this report aims to provide actionable insights for industry stakeholders, supporting better decision-making in areas such as budgeting, marketing, and production strategies.
+By combining multiple datasets and analytical techniques, the project seeks to provide actionable insights for movie producers, investors, and analysts interested in pre-release decision-making.
 
-- See the [Properties.md](https://github.com/keremsirtikizil/DSA210-Spring2025/blob/main/final_data/Properties.md) file for attribute properties.
+
+- See the [Properties.md](https://github.com/keremsirtikizil/DSA210-Spring2025/blob/main/final_data/Properties.md) file for details of attribute properties.
+
+
+## Methodology
+
+### Data Collection & Integration
+
+The data used in this project was sourced from multiple publicly available platforms:
+- **IMDb Datasets**: Provided movie ratings, vote counts, genres, and release years.
+- **TMDb API**: Offered budget and revenue data.
+- **Rotten Tomatoes**: Supplied critic review classifications (fresh/rotten).
+- **Box Office Mojo**: Used as an external reference for validating revenue figures.
+
+The datasets were cleaned and merged using unique movie identifiers. Duplicate entries were removed, and missing values were handled via imputation strategies (mean for numerical fields and mode for categorical fields).
+
+
+### Feature Engineering
+Several new features were derived to improve model performance:
+- `tmdb_profit` = `tmdb_revenue` - `tmdb_budget`
+- Log transformations were applied to highly skewed variables like budget, revenue, and vote counts.
+- A `decade` variable was created to capture temporal effects.
+- A `num_genres` variable was used to quantify genre diversity.
+- Multi-label genre data was one-hot encoded using `MultiLabelBinarizer`.
+
+
+### Exploratory Data Analysis (EDA)
+Visualizations such as histograms, scatter plots, boxplots, and heatmaps were used to identify patterns, distributions, and relationships between variables. Insights were drawn about:
+- Profitability trends
+- Director performance
+- Genre performance
+- Relationship between budget, ratings, and financial returns
+
+
+### Hypothesis Testing
+Statistical methods were employed to validate or reject assumptions:
+- **Linear Regression & t-tests**: Used to assess budget-revenue relationships.
+- **ANOVA (F-tests)**: Conducted to compare average revenue across genres.
+- **Correlation Tests (Pearson/Spearman/Point-Biserial)**: Used to evaluate relationships between variables such as runtime, ratings, and profit.
+
+
+### Machine Learning Modeling
+Two predictive tasks were undertaken:
+
+1. **Regression (Predicting Revenue)**
+   - Algorithms: Random Forest Regressor, Linear Regression, Gradient Boosting Regressor
+   - Performance Metrics: R² Score, RMSE
+   - Preprocessing: Log transformations, imputation, one-hot encoding
+
+2. **Classification (Predicting IMDb Rating Group: Low, Mid, High)**
+   - Algorithms: Logistic Regression, Random Forest Classifier, Naive Bayes
+   - Performance Metrics: Precision, Recall, F1 Score
+   - Target Variable: Categorized IMDb average rating
+   - Input Features: Pre-release data (budget, votes, genres, freshness)
+
+
 
 
 ## **Exploratory Data Analysis**
